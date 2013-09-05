@@ -10,6 +10,8 @@ chatServer.on('connection', function(client) {
     
     client.write('Hi ' + client.name + '!\n');
     
+    console.log(client.name + ' joined chat');
+    
    clientList.push(client);
    
    client.on('data', function(data) {
@@ -20,7 +22,14 @@ chatServer.on('connection', function(client) {
    
    client.on('end', function() {
     
+        console.log(client.name + ' quit chat');
         clientList.splice(clientList.indexOf(client), 1);
+    
+   });
+   
+   client.on('error', function(e) {
+    
+        console.log(e);
     
    });
 
