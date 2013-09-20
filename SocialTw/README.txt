@@ -1,0 +1,1 @@
+A simple web application that is like Twitter
